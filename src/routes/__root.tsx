@@ -5,8 +5,13 @@ import { TanStackDevtools } from "@tanstack/react-devtools"
 import appCss from "../styles.css?url"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import { PageHeader } from "@/components/page-header"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -47,12 +52,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <SidebarProvider>
           <TooltipProvider>
-            <ThemeProvider defaultTheme="dark" storageKey="theme">
+            <ThemeProvider defaultTheme="light" storageKey="theme">
               <AppSidebar />
-              <main>
-                <SidebarTrigger />
-                {children}
-              </main>
+              <SidebarInset>
+                <PageHeader>
+                  <SidebarTrigger />
+                </PageHeader>
+                <main>{children}</main>
+              </SidebarInset>
             </ThemeProvider>
           </TooltipProvider>
         </SidebarProvider>

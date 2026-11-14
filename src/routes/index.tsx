@@ -235,288 +235,272 @@ function App() {
   }
 
   return (
-    <div className="min-h-[calc(100svh-57px)] bg-background">
-      <div className="mx-auto max-w-360 px-5 py-7 lg:px-8">
-        <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
-              <span className="text-foreground">Overview</span>
-            </div>
-            <h1 className="font-heading text-2xl font-semibold tracking-tight">
-              Good morning, Alex <span className="text-amber-500">✦</span>
-            </h1>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Here&apos;s what&apos;s happening with your feature flags today.
-            </p>
+    <div className="min-h-[calc(100svh-57px)]">
+      <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
+            <span className="text-foreground">Overview</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm">
-              <CircleHelpIcon />
-              Help center
-            </Button>
-            <Button size="sm">
-              <PlusIcon />
-              Create flag
-            </Button>
-          </div>
+          <h1 className="font-heading text-2xl font-semibold tracking-tight">
+            Good morning, Alex <span className="text-amber-500">✦</span>
+          </h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Here&apos;s what&apos;s happening with your feature flags today.
+          </p>
         </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <MetricCard
-            label="Active flags"
-            value="24"
-            change="+12.5%"
-            detail="vs. last month"
-            icon={<FlagIcon />}
-            positive
-          />
-          <MetricCard
-            label="Total evaluations"
-            value="1.2M"
-            change="+8.2%"
-            detail="vs. last month"
-            icon={<ActivityIcon />}
-            positive
-          />
-          <MetricCard
-            label="Team members"
-            value="18"
-            change="+2"
-            detail="this month"
-            icon={<UsersIcon />}
-            positive
-          />
-          <MetricCard
-            label="Avg. rollout time"
-            value="2.4 days"
-            change="-18.4%"
-            detail="vs. last month"
-            icon={<SlidersHorizontalIcon />}
-            positive
-          />
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm">
+            <CircleHelpIcon />
+            Help center
+          </Button>
+          <Button size="sm">
+            <PlusIcon />
+            Create flag
+          </Button>
         </div>
+      </div>
 
-        <div className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.5fr)_minmax(300px,1fr)]">
-          <Card>
-            <CardHeader className="border-b border-border/70">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <CardTitle>Flag activity</CardTitle>
-                  <CardDescription className="mt-1">
-                    Evaluation volume across your workspace
-                  </CardDescription>
-                </div>
-                <Button variant="outline" size="sm">
-                  Last 30 days
-                  <ChevronDownIcon />
-                </Button>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-5">
-              <div className="flex items-end justify-between">
-                <div>
-                  <p className="font-heading text-3xl font-semibold">842,492</p>
-                  <p className="mt-1 flex items-center gap-1 text-xs text-emerald-600">
-                    <ArrowUpRightIcon className="size-3.5" />
-                    14.8% from previous period
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <span className="size-2 rounded-full bg-primary" />{" "}
-                    Evaluations
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="size-2 rounded-full bg-sky-200" /> Unique
-                    users
-                  </span>
-                </div>
-              </div>
-              <div className="relative mt-6 h-36">
-                <div className="absolute inset-0 flex flex-col justify-between text-[10px] text-muted-foreground/70">
-                  {["40k", "30k", "20k", "10k", "0"].map((label) => (
-                    <div className="flex items-center gap-3" key={label}>
-                      <span className="w-6 text-right">{label}</span>
-                      <span className="h-px flex-1 border-t border-dashed border-border" />
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute inset-x-9 inset-y-0 flex items-end justify-between gap-2">
-                  {[48, 61, 43, 74, 58, 68, 51, 82, 64, 77, 70, 92].map(
-                    (height, index) => (
-                      <div
-                        className="group relative flex h-full flex-1 items-end"
-                        key={index}
-                      >
-                        <div
-                          className="w-full rounded-t-sm bg-primary/80 transition-all group-hover:bg-primary"
-                          style={{ height: `${height}%` }}
-                        />
-                        <div
-                          className="absolute bottom-0 w-full rounded-t-sm bg-sky-100/70"
-                          style={{ height: `${height * 0.62}%` }}
-                        />
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-              <div className="mt-2 flex justify-between pl-9 text-[10px] text-muted-foreground">
-                {[
-                  "Oct 15",
-                  "Oct 20",
-                  "Oct 25",
-                  "Oct 30",
-                  "Nov 5",
-                  "Nov 10",
-                ].map((label) => (
-                  <span key={label}>{label}</span>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <MetricCard
+          label="Active flags"
+          value="24"
+          change="+12.5%"
+          detail="vs. last month"
+          icon={<FlagIcon />}
+          positive
+        />
+        <MetricCard
+          label="Total evaluations"
+          value="1.2M"
+          change="+8.2%"
+          detail="vs. last month"
+          icon={<ActivityIcon />}
+          positive
+        />
+        <MetricCard
+          label="Team members"
+          value="18"
+          change="+2"
+          detail="this month"
+          icon={<UsersIcon />}
+          positive
+        />
+        <MetricCard
+          label="Avg. rollout time"
+          value="2.4 days"
+          change="-18.4%"
+          detail="vs. last month"
+          icon={<SlidersHorizontalIcon />}
+          positive
+        />
+      </div>
 
-          <Card>
-            <CardHeader className="border-b border-border/70">
-              <CardTitle>Recent activity</CardTitle>
-              <CardDescription className="mt-1">
-                Updates from your workspace
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-5 pt-5">
-              {[
-                ["AM", "Alex Morgan", "enabled", "New navigation", "2h ago"],
-                [
-                  "JD",
-                  "Jamie Davis",
-                  "updated",
-                  "Smart recommendations",
-                  "5h ago",
-                ],
-                ["SK", "Sam Kim", "created", "Billing redesign", "1d ago"],
-                ["RL", "Riley Lee", "paused", "Faster search", "1d ago"],
-              ].map(([initials, person, action, flag, time]) => (
-                <div className="flex gap-3" key={`${person}-${flag}`}>
-                  <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[10px] font-semibold text-slate-600">
-                    {initials}
-                  </div>
-                  <p className="min-w-0 flex-1 text-xs leading-relaxed text-muted-foreground">
-                    <span className="font-medium text-foreground">
-                      {person}
-                    </span>{" "}
-                    {action}{" "}
-                    <span className="font-medium text-foreground">{flag}</span>
-                  </p>
-                  <span className="shrink-0 text-[10px] text-muted-foreground">
-                    {time}
-                  </span>
-                </div>
-              ))}
-              <Button variant="outline" size="sm" className="w-full">
-                View all activity
-                <ChevronRightIcon />
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-
-        <Card className="mt-5">
+      <div className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.5fr)_minmax(300px,1fr)]">
+        <Card>
           <CardHeader className="border-b border-border/70">
-            <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-start justify-between gap-4">
               <div>
-                <CardTitle>Feature flags</CardTitle>
+                <CardTitle>Flag activity</CardTitle>
                 <CardDescription className="mt-1">
-                  Manage and monitor your feature releases
+                  Evaluation volume across your workspace
                 </CardDescription>
               </div>
-              <div className="flex w-full flex-wrap gap-2 sm:w-auto">
-                <div className="relative min-w-[220px] flex-1 sm:flex-none">
-                  <SearchIcon className="absolute top-2.5 left-2.5 size-4 text-muted-foreground" />
-                  <Input
-                    value={globalFilter}
-                    onChange={(event) => setGlobalFilter(event.target.value)}
-                    placeholder="Search flags..."
-                    className="h-9 pl-8 text-xs sm:w-52"
-                  />
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={toggleStatusFilter}
-                >
-                  <FilterIcon />
-                  {statusFilter}
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon-sm"
-                  aria-label="Table settings"
-                >
-                  <Settings2Icon />
-                </Button>
-              </div>
+              <Button variant="outline" size="sm">
+                Last 30 days
+                <ChevronDownIcon />
+              </Button>
             </div>
           </CardHeader>
-          <CardContent className="p-0">
-            <Table>
-              <TableHeader>
-                {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow
-                    key={headerGroup.id}
-                    className="hover:bg-transparent"
-                  >
-                    {headerGroup.headers.map((header) => (
-                      <TableHead
-                        key={header.id}
-                        className="px-5 text-[10px] font-semibold tracking-wide text-muted-foreground uppercase"
-                      >
-                        {header.isPlaceholder ? null : (
-                          <table.FlexRender header={header} />
-                        )}
-                      </TableHead>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableHeader>
-              <TableBody>
-                {visibleRows.map((row) => (
-                  <TableRow key={row.id}>
-                    {row.getAllCells().map((cell) => (
-                      <TableCell key={cell.id} className="px-5 py-3.5">
-                        <table.FlexRender cell={cell} />
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            <div className="flex items-center justify-between border-t border-border/70 px-5 py-3 text-xs text-muted-foreground">
-              <span>
-                Showing {visibleRows.length} of {flags.length} flags
-              </span>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="icon-sm"
-                  disabled
-                  aria-label="Previous page"
-                >
-                  <ChevronLeftIcon />
-                </Button>
-                <span className="px-1 tabular-nums">1</span>
-                <Button
-                  variant="outline"
-                  size="icon-sm"
-                  disabled
-                  aria-label="Next page"
-                >
-                  <ChevronRightIcon />
-                </Button>
+          <CardContent className="pt-5">
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="font-heading text-3xl font-semibold">842,492</p>
+                <p className="mt-1 flex items-center gap-1 text-xs text-emerald-600">
+                  <ArrowUpRightIcon className="size-3.5" />
+                  14.8% from previous period
+                </p>
               </div>
+              <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <span className="size-2 rounded-full bg-primary" />{" "}
+                  Evaluations
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="size-2 rounded-full bg-sky-200" /> Unique
+                  users
+                </span>
+              </div>
+            </div>
+            <div className="relative mt-6 h-36">
+              <div className="absolute inset-0 flex flex-col justify-between text-[10px] text-muted-foreground/70">
+                {["40k", "30k", "20k", "10k", "0"].map((label) => (
+                  <div className="flex items-center gap-3" key={label}>
+                    <span className="w-6 text-right">{label}</span>
+                    <span className="h-px flex-1 border-t border-dashed border-border" />
+                  </div>
+                ))}
+              </div>
+              <div className="absolute inset-x-9 inset-y-0 flex items-end justify-between gap-2">
+                {[48, 61, 43, 74, 58, 68, 51, 82, 64, 77, 70, 92].map(
+                  (height, index) => (
+                    <div
+                      className="group relative flex h-full flex-1 items-end"
+                      key={index}
+                    >
+                      <div
+                        className="w-full rounded-t-sm bg-primary/80 transition-all group-hover:bg-primary"
+                        style={{ height: `${height}%` }}
+                      />
+                      <div
+                        className="absolute bottom-0 w-full rounded-t-sm bg-sky-100/70"
+                        style={{ height: `${height * 0.62}%` }}
+                      />
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+            <div className="mt-2 flex justify-between pl-9 text-[10px] text-muted-foreground">
+              {["Oct 15", "Oct 20", "Oct 25", "Oct 30", "Nov 5", "Nov 10"].map(
+                (label) => (
+                  <span key={label}>{label}</span>
+                )
+              )}
             </div>
           </CardContent>
         </Card>
+
+        <Card>
+          <CardHeader className="border-b border-border/70">
+            <CardTitle>Recent activity</CardTitle>
+            <CardDescription className="mt-1">
+              Updates from your workspace
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-5 pt-5">
+            {[
+              ["AM", "Alex Morgan", "enabled", "New navigation", "2h ago"],
+              [
+                "JD",
+                "Jamie Davis",
+                "updated",
+                "Smart recommendations",
+                "5h ago",
+              ],
+              ["SK", "Sam Kim", "created", "Billing redesign", "1d ago"],
+              ["RL", "Riley Lee", "paused", "Faster search", "1d ago"],
+            ].map(([initials, person, action, flag, time]) => (
+              <div className="flex gap-3" key={`${person}-${flag}`}>
+                <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[10px] font-semibold text-slate-600">
+                  {initials}
+                </div>
+                <p className="min-w-0 flex-1 text-xs leading-relaxed text-muted-foreground">
+                  <span className="font-medium text-foreground">{person}</span>{" "}
+                  {action}{" "}
+                  <span className="font-medium text-foreground">{flag}</span>
+                </p>
+                <span className="shrink-0 text-[10px] text-muted-foreground">
+                  {time}
+                </span>
+              </div>
+            ))}
+            <Button variant="outline" size="sm" className="w-full">
+              View all activity
+              <ChevronRightIcon />
+            </Button>
+          </CardContent>
+        </Card>
       </div>
+
+      <Card className="mt-5">
+        <CardHeader className="border-b border-border/70">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <CardTitle>Feature flags</CardTitle>
+              <CardDescription className="mt-1">
+                Manage and monitor your feature releases
+              </CardDescription>
+            </div>
+            <div className="flex w-full flex-wrap gap-2 sm:w-auto">
+              <div className="relative min-w-[220px] flex-1 sm:flex-none">
+                <SearchIcon className="absolute top-2.5 left-2.5 size-4 text-muted-foreground" />
+                <Input
+                  value={globalFilter}
+                  onChange={(event) => setGlobalFilter(event.target.value)}
+                  placeholder="Search flags..."
+                  className="h-9 pl-8 text-xs sm:w-52"
+                />
+              </div>
+              <Button variant="outline" size="sm" onClick={toggleStatusFilter}>
+                <FilterIcon />
+                {statusFilter}
+              </Button>
+              <Button
+                variant="outline"
+                size="icon-sm"
+                aria-label="Table settings"
+              >
+                <Settings2Icon />
+              </Button>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id} className="hover:bg-transparent">
+                  {headerGroup.headers.map((header) => (
+                    <TableHead
+                      key={header.id}
+                      className="px-5 text-[10px] font-semibold tracking-wide text-muted-foreground uppercase"
+                    >
+                      {header.isPlaceholder ? null : (
+                        <table.FlexRender header={header} />
+                      )}
+                    </TableHead>
+                  ))}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {visibleRows.map((row) => (
+                <TableRow key={row.id}>
+                  {row.getAllCells().map((cell) => (
+                    <TableCell key={cell.id} className="px-5 py-3.5">
+                      <table.FlexRender cell={cell} />
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+          <div className="flex items-center justify-between border-t border-border/70 px-5 py-3 text-xs text-muted-foreground">
+            <span>
+              Showing {visibleRows.length} of {flags.length} flags
+            </span>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="icon-sm"
+                disabled
+                aria-label="Previous page"
+              >
+                <ChevronLeftIcon />
+              </Button>
+              <span className="px-1 tabular-nums">1</span>
+              <Button
+                variant="outline"
+                size="icon-sm"
+                disabled
+                aria-label="Next page"
+              >
+                <ChevronRightIcon />
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }

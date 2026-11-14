@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlaygroundHistoryRouteImport } from './routes/playground/history'
+import { Route as PlaygroundSettingsRouteImport } from './routes/playground/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlaygroundHistoryRoute = PlaygroundHistoryRouteImport.update({
+  id: '/playground/history',
+  path: '/playground/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlaygroundSettingsRoute = PlaygroundSettingsRouteImport.update({
+  id: '/playground/settings',
+  path: '/playground/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/playground/history': typeof PlaygroundHistoryRoute
+  '/playground/settings': typeof PlaygroundSettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/playground/history': typeof PlaygroundHistoryRoute
+  '/playground/settings': typeof PlaygroundSettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/playground/history': typeof PlaygroundHistoryRoute
+  '/playground/settings': typeof PlaygroundSettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/playground/history' | '/playground/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/playground/history' | '/playground/settings'
+  id: '__root__' | '/' | '/playground/history' | '/playground/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PlaygroundHistoryRoute: typeof PlaygroundHistoryRoute
+  PlaygroundSettingsRoute: typeof PlaygroundSettingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/playground/history': {
+      id: '/playground/history'
+      path: '/playground/history'
+      fullPath: '/playground/history'
+      preLoaderRoute: typeof PlaygroundHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playground/settings': {
+      id: '/playground/settings'
+      path: '/playground/settings'
+      fullPath: '/playground/settings'
+      preLoaderRoute: typeof PlaygroundSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PlaygroundHistoryRoute: PlaygroundHistoryRoute,
+  PlaygroundSettingsRoute: PlaygroundSettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

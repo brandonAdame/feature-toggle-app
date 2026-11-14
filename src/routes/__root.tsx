@@ -55,10 +55,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <ThemeProvider defaultTheme="light" storageKey="theme">
               <AppSidebar />
               <SidebarInset>
-                <PageHeader title="Overview">
+                <PageHeader>
                   <SidebarTrigger />
                 </PageHeader>
-                <main>{children}</main>
+                <main className="bg-background p-5">{children}</main>
               </SidebarInset>
             </ThemeProvider>
           </TooltipProvider>

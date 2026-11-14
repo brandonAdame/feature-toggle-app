@@ -59,7 +59,7 @@ const data = {
       items: [
         {
           title: "History",
-          url: "#",
+          url: "/playground/history",
         },
         {
           title: "Starred",
@@ -67,7 +67,7 @@ const data = {
         },
         {
           title: "Settings",
-          url: "#",
+          url: "/playground/settings",
         },
       ],
     },

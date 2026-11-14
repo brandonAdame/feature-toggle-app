@@ -55,7 +55,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <ThemeProvider defaultTheme="light" storageKey="theme">
               <AppSidebar />
               <SidebarInset>
-                <PageHeader>
+                <PageHeader title="Overview">
                   <SidebarTrigger />
                 </PageHeader>
                 <main>{children}</main>

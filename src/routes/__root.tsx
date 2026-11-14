@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { PageHeader } from "@/components/page-header"
+import { Toaster } from "sonner"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -63,6 +64,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             </ThemeProvider>
           </TooltipProvider>
         </SidebarProvider>
+        <Toaster />
         <TanStackDevtools
           config={{
             position: "bottom-right",

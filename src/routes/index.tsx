@@ -41,6 +41,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { CreateFlag } from "@/components/create-flag-sheet"
 
 export const Route = createFileRoute("/")({ component: App })
 
@@ -253,10 +254,7 @@ function App() {
             <CircleHelpIcon />
             Help center
           </Button>
-          <Button size="sm">
-            <PlusIcon />
-            Create flag
-          </Button>
+          <CreateFlag />
         </div>
       </div>
 

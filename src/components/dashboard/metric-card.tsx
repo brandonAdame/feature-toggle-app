@@ -29,9 +29,9 @@ export function MetricCard({
   positive,
 }: MetricCardProps) {
   return (
-    <Card>
-      <CardContent className="pt-4">
-        <div className="mb-4 flex items-center justify-between">
+    <Card size="sm">
+      <CardContent>
+        <div className="mb-3 flex items-center justify-between">
           <span className="text-xs text-muted-foreground">{label}</span>
           <span className="flex size-7 items-center justify-center rounded-md bg-primary/10 text-primary">
             <span className="[&>svg]:size-3.5">{icon}</span>
@@ -39,9 +39,11 @@ export function MetricCard({
         </div>
         <div className="flex items-end justify-between gap-3">
           <div className="flex min-w-0 items-baseline gap-2">
-            <span className="font-heading text-2xl font-semibold">{value}</span>
+            <span className="font-heading text-2xl font-semibold whitespace-nowrap">
+              {value}
+            </span>
             <span
-              className={`flex items-center text-[10px] font-medium ${positive ? "text-emerald-600" : "text-rose-600"}`}
+              className={`flex items-center text-[10px] font-medium whitespace-nowrap ${positive ? "text-emerald-600" : "text-rose-600"}`}
             >
               {positive ? (
                 <ArrowUpRightIcon className="size-3" />
@@ -53,12 +55,12 @@ export function MetricCard({
           </div>
           <LineSparkline
             aria-label={`${label} trend`}
-            className="w-24 shrink-0"
+            className="w-20 shrink-0"
             color={chartCssVars.linePrimary}
             data={sparkline}
             dataKey="value"
             endDot
-            height={40}
+            height={32}
             interactive={false}
           />
         </div>

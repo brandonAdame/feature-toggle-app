@@ -53,7 +53,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <SidebarProvider>
           <TooltipProvider>
-            <ThemeProvider defaultTheme="light" storageKey="theme">
+            <ThemeProvider defaultTheme="system" storageKey="theme">
               <AppSidebar />
               <SidebarInset>
                 <PageHeader>
